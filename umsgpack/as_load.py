@@ -7,7 +7,7 @@
 # See __init__.py for details of changes made for MicroPython.
 
 import ustruct
-import collections
+import ucollections
 import uio
 from uasyncio import StreamReader
 from . import *
@@ -148,7 +148,7 @@ async def _unpack_map(code, fp, options):
         _fail()
 
     d = {} if not options.get('use_ordered_dict') \
-        else collections.OrderedDict()
+        else ucollections.OrderedDict()
     for _ in range(length):
         # Unpack key
         k = await _unpack(fp, options)
